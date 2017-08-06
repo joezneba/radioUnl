@@ -98,17 +98,17 @@
                         <li class="active">
                             <a href="<?php echo base_url(); ?>index.php/login/page_Admin"><i class="fa fa-fw fa-home"></i>Inicio</a>
                         </li>
-                        <li class="active">
+                        <!--<li class="active">
                             <a href="<?php echo base_url(); ?>index.php/noticia/listaNoticias"><i class="fa fa-fw fa-hospital-o"></i>Noticias</a>
+                        </li>-->
+                        <li class="active">
+                            <a href="<?php echo base_url(); ?>index.php/programa/listaProgramas"><i class="fa fa-fw fa-list-alt"></i>Parrilla de Programación</a>
                         </li>
                         <li class="active">
-                            <a href="<?php echo base_url(); ?>index.php/programa/listaProgramas"><i class="fa fa-fw fa-hospital-o"></i>Parrilla de Programación</a>
+                            <a href="<?php echo base_url(); ?>index.php/programagrabado/listaProgramasGrabados"><i class="fa fa-fw fa-file-audio-o"></i>Programas Grabados</a>
                         </li>
                         <li class="active">
-                            <a href="<?php echo base_url(); ?>index.php/programagrabado/listaProgramasGrabados"><i class="fa fa-fw fa-hospital-o"></i>Programas Grabados</a>
-                        </li>
-                        <li class="active">
-                            <a href="<?php echo base_url(); ?>index.php/banner/listaBanners"><i class="fa fa-fw fa-hospital-o"></i>Banner</a>
+                            <a href="<?php echo base_url(); ?>index.php/banner/listaBanners"><i class="fa fa-fw fa-picture-o"></i>Banner</a>
                         </li>
                     </ul>
                 </div>

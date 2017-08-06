@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-/******* UNIDAD DE SALUD CTRL ************/
+/******* Programa ************/
 $route['Programa_SW']['get'] = "Programa_SW/index";//*
 $route['Programa_SW/lunes/(:num)']['get'] = "Programa_SW/find/$1";//*
 $route['Programa_SW/martes/(:num)']['get'] = "Programa_SW/find/$1";//*
@@ -61,4 +61,9 @@ $route['Programa_SW/jueves/(:num)']['get'] = "Programa_SW/find/$1";//*
 $route['Programa_SW/viernes/(:num)']['get'] = "Programa_SW/find/$1";//*
 
 
-/******* Areas de Especialidad CTRL ************/
+/******* Clientesapp ************/
+$route["Clienteapp_SW"]["get"]="Clienteapp_SW/index";
+$route["Clienteapp_SW/(:num)"]["get"]="Clienteapp_SW/find/$1";
+$route["Clienteapp_SW"]["post"]="Clienteapp_SW/index";
+$route["Clienteapp_SW/(:num)"]["put"]="Clienteapp_SW/index/$1";
+$route["Clienteapp_SW/(:num)"]["delete"]="Clienteapp_SW/index/$1";

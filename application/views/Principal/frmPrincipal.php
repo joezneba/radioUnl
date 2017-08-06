@@ -7,14 +7,14 @@
             <li class="active">
                 <i class="fa fa-home"></i> Inicio
             </li>
-            <li>
+            <!--<li>
                 <a id="cUS" type="button" href="<?php echo base_url(); ?>index.php/noticia/index" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span>     Crear Noticia</a>
-            </li>
+            </li>-->
             <li>
                 <a id="cUS" type="button" href="<?php echo base_url(); ?>index.php/programa/index" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span>     Crear Programa</a>
             </li>
             <li>
-                <a id="cUS" type="button" href="<?php echo base_url(); ?>index.php/programa/index" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span>     Crear Programa Grabado</a>
+                <a id="cUS" type="button" href="<?php echo base_url(); ?>index.php/programagrabado/index" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span>     Crear Programa Grabado</a>
             </li>
         </ol>
     </div>
@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-4 col-md-6">
+    <!--<div class="col-lg-4 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -47,7 +47,7 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div>-->
     <div class="col-lg-4 col-md-6">
         <div class="panel panel-red">
             <div class="panel-heading">

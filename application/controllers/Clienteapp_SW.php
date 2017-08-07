@@ -34,21 +34,56 @@ class Clienteapp_SW extends REST_Controller {
         }
     }
 
-    public function find_get($id)
+    public function usuario_get($correo)
+    {
+        if (! $correo) 
+        {
+           $this->response(NULL,400); 
+        }
+        $user_data=$this->Clienteapp_model->user_get($correo);
+
+        if (! is_null($user_data)) 
+        {
+            $this->response(array("response"=>$user_data),200);
+        }
+        else 
+        {
+            $this->response(array("Error"=>"No se encuentra el usuario"),404);
+        }
+    }
+
+    /*public function find_get($id=NULL)
     {
         if (! $id) 
         {
            $this->response(NULL,400); 
         }
-        $programas=$this->Programa_model->get($id);
+        $user_data=$this->Clienteapp_model->get($id);
 
-        if (! is_null($programas)) 
+        if (! is_null($user_data)) 
         {
-            $this->response(array("response"=>$programas),200);
+            $this->response(array("response"=>$user_data),200);
         }
         else 
         {
-            $this->response(array("Error"=>"No se encuentra programa"),404);
+            $this->response(array("Error"=>"No se encuentra usuario"),404);
+        }
+    }*/
+    public function find_get($correo="")
+    {
+        if (! $correo )
+        {
+           $this->response(NULL,400); 
+        }
+        $user_data=$this->Clienteapp_model->user_get($correo);
+
+        if (! is_null($user_data)) 
+        {
+            $this->response(array("response"=>$user_data),200);
+        }
+        else 
+        {
+            $this->response(array("Error"=>"No se encuentra usuario"),404);
         }
     }
 

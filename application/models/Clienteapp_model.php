@@ -12,17 +12,39 @@ class Clienteapp_model extends CI_Model {
     	return $this->db->insert('clienteapp',$user_data);
     }
 
-    public function get($correo=NULL)
+    public function get($id=NULL)
 	{
-		if (! is_null($correo))
+		if (! is_null($id))
 		{
-			$query=$this->db->select("*")->from("clienteapp")->where("correo",$correo)->get();
+			$query=$this->db->select("*")->from("clienteapp")->where("idCliente",$id)->get();
 			if ($query->num_rows()===1) 
 			{
 				return $query->row_array();
 			}
 			return NULL;
 		}
+		//SELECT `idCliente`, `NOMBRE`, `CORREO`, `CLAVE` FROM `clienteapp` WHERE `correo`='lsyCAncYLelTi2xqCFvauBR9sRuV/c6AKqNnbl1FgEW4525X97fYsRXBZLeuWyRDwSnlW9iIRe84oXtALT46Vg==' AND `clave`='o3nqMCh6mqxpXpyBQmOO4zN6qRpXrskST8gmVKeexEAxbHUzhgQaSGO/v325oMWVoYTv/QAZeMi7x4W86qFTiQ=='
+		$query= $this->db->select("*")->from("clienteapp")->get();
+		if ($query->num_rows()>0) 
+		{
+			return $query->result_array();
+		}
+		return NULL;
+		
+	}
+
+	public function user_get($correo="")
+	{
+		if (! is_null($correo))
+		{
+			$query=$this->db->select("*")->from("clienteapp")->where("CORREO",$correo)->get();
+			if ($query->num_rows()===1) 
+			{
+				return $query->row_array();
+			}
+			return NULL;
+		}
+		//SELECT `idCliente`, `NOMBRE`, `CORREO`, `CLAVE` FROM `clienteapp` WHERE `correo`='lsyCAncYLelTi2xqCFvauBR9sRuV/c6AKqNnbl1FgEW4525X97fYsRXBZLeuWyRDwSnlW9iIRe84oXtALT46Vg==' AND `clave`='o3nqMCh6mqxpXpyBQmOO4zN6qRpXrskST8gmVKeexEAxbHUzhgQaSGO/v325oMWVoYTv/QAZeMi7x4W86qFTiQ=='
 		$query= $this->db->select("*")->from("clienteapp")->get();
 		if ($query->num_rows()>0) 
 		{

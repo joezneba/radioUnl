@@ -24,12 +24,12 @@ class Clienteapp extends CI_Controller {
     {
     	//encriptamos los datos para almacernarlos en la DB
     	$encrypt_nombre = $this->encrypt->encode($this->input->post('nombre'));
-    	$encrypt_correo = $this->encrypt->encode($this->input->post('email'));
+    	//$encrypt_correo = $this->encrypt->encode($this->input->post('email'));
     	$encrypt_clave = $this->encrypt->encode($this->input->post('clave'));
     	//enviamos el array para guardar los datos
         $user_data = array(
             'NOMBRE'   => $encrypt_nombre,
-            'CORREO'     => $encrypt_correo,
+            'CORREO'     => $this->input->post('email'),
             'CLAVE'  => $encrypt_clave
         );
         $this->load->model('Clienteapp_model');

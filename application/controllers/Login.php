@@ -200,7 +200,7 @@ class Login extends CI_Controller {
     }
 
     //actualiza el latitud y longitud de una Unidad de salur X
-    public function actualizar() {
+    /*public function actualizar() {
         $id = $this->input->post("Nombre_Oficial");
         $lista = array(
             'LONGITUD' => $this->input->post("Longitud"),
@@ -208,7 +208,7 @@ class Login extends CI_Controller {
         );
         $this->UnidadSalud_model->actualizarPorNombre($id, $lista);
         redirect('Login/googleMaps', 'refresh');
-    }
+    }*/
 
     public function RecuperarClave() {
         $correoAlternativo = $this->input->post('correoAlter');

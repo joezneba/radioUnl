@@ -81,22 +81,14 @@ class Banner extends CI_Controller {
             redirect('banner/infBanner/' . $id, 'refresh');
         }
     }
-    /////////// Buscar Noticia
-    public function buscarNoticia() {
-        $datoBuscar = $this->input->post("datoBuscar");
-        $data['title'] = "Información De La Noticia";
-        $data['main'] = 'Principal/frmResultadobuscador';
-        $data['lista'] = $this->Noticia_model->getNoticias($this->session->userdata['esta_logeado']['idUsuario']);
-        $data['datoBuscados'] = $this->Noticia_model->buscar($datoBuscar);
-        $this->load->vars($data);
-        $this->load->view('include/header');
-    }
-    /////////// eliminar Noticia
+    ///////////
+    
+    /////////// 
 
-    public function eliminarNo($id) {
+    /*public function eliminarBanner($id) {
         $this->Noticia_model->eliminarNoticia($id);
         redirect('noticia/listaNoticias/', 'refresh');
-    }
+    }*/
     /////////
 
 

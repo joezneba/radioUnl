@@ -6,9 +6,6 @@ class Programagrabado extends CI_Controller {
 	    public function __construct() {
         parent::__construct();
         $this->load->model('Programagrabado_model'); //carga model Unidad de Salud   
-        //$this->load->model('Especialidad_model'); //carga el model de Especialidad
-        //$this->load->model('Servicios_model'); // Carga el model de Servicios
-        //$this->load->model('AreasEspecialidad_model'); // Carga el model de Area de Especialidad
     }
 
     public function index() {//crear Unidad de salud
@@ -95,19 +92,9 @@ class Programagrabado extends CI_Controller {
             redirect('programagrabado/infProgramaGrabado/' . $id, 'refresh');
         }
     }
-    /////////// Buscar Programa Grabado
-    /*public function buscarProgramaGrabado() {
-        $datoBuscar = $this->input->post("datoBuscar");
-        $data['title'] = "Información Del Programa Grabado";
-        $data['main'] = 'Programagrabado/frmResultadobuscador';
-        $data['lista'] = $this->Programagrabado_model->getProgramasGrabados($this->session->userdata['esta_logeado']['idUsuario']);
-        $data['datoBuscados'] = $this->Programagrabado_model->buscar($datoBuscar);
-        $this->load->vars($data);
-        $this->load->view('include/header');
-    }*/
+    
 
-    /////////// eliminar Noticia
-
+    /////////// eliminar Programa Grabado
     public function eliminarProGra($id) {
         $this->Programagrabado_model->eliminarProgramaGrabado($id);
         redirect('programagrabado/listaProgramasGrabados/', 'refresh');

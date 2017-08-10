@@ -108,6 +108,9 @@
                             <a href="<?php echo base_url(); ?>index.php/programagrabado/listaProgramasGrabados"><i class="fa fa-fw fa-file-audio-o"></i>Programas Grabados</a>
                         </li>
                         <li class="active">
+                            <a href="<?php echo base_url(); ?>index.php/informacion"><i class="fa fa-fw fa-question-circle"></i>Información</a>
+                        </li>
+                        <li class="active">
                             <a href="<?php echo base_url(); ?>index.php/banner/listaBanners"><i class="fa fa-fw fa-picture-o"></i>Banner</a>
                         </li>
                     </ul>

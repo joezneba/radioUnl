@@ -46,8 +46,15 @@ function __construct() {
         $this->db->update('informacion', $datos);
     }
 
-
-	
+    ////////////REST
+    public function get()
+    {
+        $query = $this->db->select('`DESCRIPCION`,`CORREO`,`TELEFONO`')->from('informacion')->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+        return NULL;
+    }
 
 }
 

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH . 'libraries/REST_Controller.php';
 
-class Banner_SW extends REST_Controller {
+class Informacion_SW extends REST_Controller {
 
     
     public function __construct()
@@ -16,22 +16,24 @@ class Banner_SW extends REST_Controller {
             die();
         }
         parent::__construct();
-        $this->load->model('Banner_model');
+        $this->load->model('Informacion_model');
         
     }
     
     public function index_get()
     {
-        $banner=$this->Banner_model->get();
+        $informacion=$this->Informacion_model->get();
 
-        if (! is_null($banner)) 
+        if (! is_null($informacion)) 
         {
-            $this->response(array("response"=>$banner),200);
+            $this->response(array("response"=>$informacion),200);
         }
         else 
         {
-            $this->response(array("Error"=>"No hay programas"),404);
+            $this->response(array("Error"=>"No hay Informacion"),404);
         }
     }
-
 }
+
+/* End of file Informacion_SW.php */
+/* Location: ./application/controllers/Informacion_SW.php */

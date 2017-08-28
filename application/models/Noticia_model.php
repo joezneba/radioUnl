@@ -16,10 +16,7 @@ class Noticia_model extends CI_Model {
         $this->db->update('unidad_salud', $datos);
     }
 
-    function actualizarPorNombre($nombreUS, $datos) {
-        $this->db->where('unidad_salud.NOMBRE_OFICIAL', $nombreUS);
-        $this->db->update('unidad_salud', $datos);
-    }
+
     /////obtener noticias
     public function getNoticias($id) {
         $this->db->select('*');
@@ -59,65 +56,27 @@ class Noticia_model extends CI_Model {
 
     ////////
 
-    public function getUnidadEliminadas() {
-        $condition = "ESTADO =" . 0;
-        $this->db->select('*');
-        $this->db->from('unidad_salud');
-        $this->db->where($condition);
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
-
-
 
 
     /*     * ** SERVICIO WEB*** */
 
-    public function get($id = NULL) {
-        $condition = "IDUNIDADSALUD =" . "'" . $id . "' AND " . "ESTADO =" . "'" . 1 . "'";
-        if (!is_null($id)) {
-            $query = $this->db->select('`IDUNIDADSALUD`,`UNICODIGO`,`NOMBRE_OFICIAL`,`DIRECCION`,`TELEFONO`,`PROVINCIA`,`LUCRO`,`NIVEL_ATENCION`,`TIPOLOGIA`,`FOTO`')->from('unidad_salud')->where($condition)->get();
-            if ($query->num_rows() === 1) {
-                return $query->result_array();
+    public function get($id=NULL)
+        {
+            if (! is_null($id)) 
+            {
+                $query=$this->db->select("`IDNOTICIA`, `TITULO`, `DESCRIPCION`, `FECHA`, `FOTO`")->from("noticia")->where("IDNOTICIA",$id)->get();
+                if ($query->num_rows()===1) {
+                    return $query->row_array();
+                }
+                return NULL;
             }
-            return NULL;
-        }
-        $condition = "ESTADO =" . "'" . 1 . "'";
-        $query = $this->db->select('`IDUNIDADSALUD`,`UNICODIGO`,`NOMBRE_OFICIAL`,`DIRECCION`,`TELEFONO`,`LUCRO`,`LONGITUD`, `LATITUD`,`FOTO`')->from('unidad_salud')->where($condition)->get();
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        }
-        return NULL;
-//        $sql = $this->db->get('unidad_salud');
-        //return $sql->result();
-    }
 
-        public function getInactivas() {
-        $condition = "ESTADO =" . "'" . 0 . "'";
-        $query = $this->db->select('*')->from('unidad_salud')->where($condition)->get();
-        if ($query->num_rows() > 0) {
-            return $query->result();
+            $query=$this->db->select("`IDNOTICIA`, `TITULO`, `DESCRIPCION`, `FECHA`, `FOTO`")->from("noticia")->get();
+                if ($query->num_rows()>0) {
+                    return $query->result_array();
+                }
+                return NULL;
         }
-        return NULL;
-//        $sql = $this->db->get('unidad_salud');
-        //return $sql->result();
-    }
-    public function getNombre($id = NULL) {
-        if (!is_null($id)) {
-            $condition = "IDUNIDADSALUD =" . "'" . $id . "' AND " . "ESTADO =" . "'" . 1 . "'";
-            $query = $this->db->select('`IDUNIDADSALUD`,`UNICODIGO`,`NOMBRE_OFICIAL`,`FOTO`,`LUCRO`')->from('unidad_salud')->where($condition)->get();
-            if ($query->num_rows() === 1) {
-                return $query->result_array();
-            }
-            return NULL;
-        }
-        $sql = $this->db->get('unidad_salud');
-        return $sql->result();
-    }
 
     /*     * ********************************* */
 }

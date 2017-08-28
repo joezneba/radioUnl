@@ -17,7 +17,7 @@ class Programa_model extends CI_Model {
         $this->db->where('unidad_salud.NOMBRE_OFICIAL', $nombreUS);
         $this->db->update('unidad_salud', $datos);
     }
-    /////obtener noticias
+    /////obtener programa
     public function getProgramas($id) {
         $this->db->select('*');
         $this->db->from('programa');

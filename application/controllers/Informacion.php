@@ -5,11 +5,11 @@ class Informacion extends CI_Controller {
 
 	   public function __construct() {
         parent::__construct();
-        $this->load->model('Informacion_model'); //carga model Unidad de Salud   
+        $this->load->model('Informacion_model'); //carga model informacion 
     }
 
 
-    public function index() {//crear Unidad de salud
+    public function index() {
         $data['title'] = "Información";
         $data['main'] = 'informacion/frm_Informacion';
         $data['lista'] = $this->Informacion_model->getInformaciones($this->session->userdata['esta_logeado']['idUsuario']);
@@ -18,14 +18,8 @@ class Informacion extends CI_Controller {
         $this->load->vars($data);
         $this->load->view('include/header');
     }
-    /*public function index() {//crear Unidad de salud
-        $data['title'] = "Informacion";
-        $data['main'] = 'informacion/frm_AgregarInformacion';
-        $data['lista'] = $this->Informacion_model->getInformaciones($this->session->userdata['esta_logeado']['idUsuario']);
-        $this->load->vars($data);
-        $this->load->view('include/header');
-    }*/
-    /////////Guardar Noticia
+
+    /////////Guardar Informacion
     public function guardarInformacion() {
         $lista = array(
             'usuarioidUsuario' => $this->session->userdata['esta_logeado']['idUsuario'],

@@ -49,7 +49,7 @@ $FOTO = array(
         $('#editar').on('click', function () {
             $('#Titulo').removeAttr("disabled");
             $('#Descripcion').removeAttr("disabled");
-            $('#Fecha').removeAttr("disabled");
+            //$('#Fecha').removeAttr("disabled");
             $('#editar').hide();
             $('#guardar').show();
             $('#cancelar').show();
@@ -135,7 +135,10 @@ $FOTO = array(
 	              <label for="Estatus" class="col-lg-3 control-label">DESCRIPCION:</label>
 	              <div class="input-group">
 	              	<span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-	              	<input id="Descripcion" name="Descripcion" disabled="true" type="text"  class="required form-control"  value="<?php echo $infNoticia[0]->DESCRIPCION ?>"> 
+                    <textarea id="Descripcion" name="Descripcion" disabled="true" type="text"  class="required form-control" cols="60" rows="8">
+                        <?php echo $infNoticia[0]->DESCRIPCION ?>
+                    </textarea>
+	              	
 	              </div>
 	          </div>
 	          	<div class="form-group col-lg-12">

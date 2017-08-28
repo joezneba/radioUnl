@@ -5,10 +5,10 @@ class Programagrabado extends CI_Controller {
 
 	    public function __construct() {
         parent::__construct();
-        $this->load->model('Programagrabado_model'); //carga model Unidad de Salud   
+        $this->load->model('Programagrabado_model'); //carga model Programa grabado
     }
 
-    public function index() {//crear Unidad de salud
+    public function index() {
         $data['title'] = "Formulario Crear Programa Grabado";
         $data['main'] = 'programagrabado/frm_CrearProgramaGrabado';
         $data['lista'] = $this->Programagrabado_model->getProgramasGrabados($this->session->userdata['esta_logeado']['idUsuario']);

@@ -5,10 +5,7 @@ class Programa extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model('Programa_model'); //carga model Unidad de Salud   
-        //$this->load->model('Especialidad_model'); //carga el model de Especialidad
-        //$this->load->model('Servicios_model'); // Carga el model de Servicios
-        //$this->load->model('AreasEspecialidad_model'); // Carga el model de Area de Especialidad
+        $this->load->model('Programa_model'); //carga model Programa
     }
 
     public function index() {//crear Unidad de salud
@@ -18,7 +15,7 @@ class Programa extends CI_Controller {
         $this->load->vars($data);
         $this->load->view('include/header');
     }
-    /////////Guardar Noticia
+    /////////Guardar Programa
     public function guardarPrograma() {
         $lista = array(
             'usuarioidUsuario' => $this->session->userdata['esta_logeado']['idUsuario'],

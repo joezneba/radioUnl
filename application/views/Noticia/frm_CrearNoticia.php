@@ -13,11 +13,9 @@ $titulo = array(
 $descripcion = array(
     'name' => 'Descripcion',
     'id' => 'Descripcion',
-    'maxlength' => 50,
     'value' => set_value('Descripcion'),
     'type' => 'text',
     'class' => 'required form-control',
-    'style' => 'text-transform:uppercase',
     'placeholder' => 'Ingrese la descripcion de la noticia'
 );
 $fecha = array(
@@ -82,13 +80,14 @@ $foto = array(
         <div class="form-group col-lg-12">
             <label for="Nombre" class="col-lg-2 control-label">DESCRIPCION:</label>
             <div class="col-lg-4">
-                <?php echo form_input($descripcion); ?>
+                <?php echo form_textarea($descripcion); ?>
             </div>
         </div>
         <div class="form-group col-lg-12">
             <label for="Nombre" class="col-lg-2 control-label">FECHA:</label>
             <div class="col-lg-4">
-                <?php echo form_input($fecha); ?>
+
+                <?php// echo form_input($fecha); ?>
             </div>
         </div>
         <div class="form-group col-lg-12">

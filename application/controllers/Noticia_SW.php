@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH . 'libraries/REST_Controller.php';
 
-class Programa_SW extends REST_Controller {
+class Noticia_SW extends REST_Controller {
 
     
     public function __construct()
@@ -16,21 +16,21 @@ class Programa_SW extends REST_Controller {
             die();
         }
         parent::__construct();
-        $this->load->model('Programa_model');
+        $this->load->model('Noticia_model');
         
     }
     
     public function index_get()
     {
-        $programas=$this->Programa_model->get();
+        $noticias=$this->Noticia_model->get();
 
-        if (! is_null($programas)) 
+        if (! is_null($noticias)) 
         {
-            $this->response(array("response"=>$programas),200);
+            $this->response(array("response"=>$noticias),200);
         }
         else 
         {
-            $this->response(array("Error"=>"No hay programas"),404);
+            $this->response(array("Error"=>"No hay Noticias"),404);
         }
     }
 
@@ -67,6 +67,3 @@ class Programa_SW extends REST_Controller {
         }
     }
 }
-
-/* End of file Programa_SW.php */
-

@@ -98,9 +98,9 @@
                         <li class="active">
                             <a href="<?php echo base_url(); ?>index.php/login/page_Admin"><i class="fa fa-fw fa-home"></i>Inicio</a>
                         </li>
-                        <!--<li class="active">
-                            <a href="<?php echo base_url(); ?>index.php/noticia/listaNoticias"><i class="fa fa-fw fa-hospital-o"></i>Noticias</a>
-                        </li>-->
+                        <li class="active">
+                            <a href="<?php echo base_url(); ?>index.php/noticia/listaNoticias"><i class="fa fa-fw fa-edit"></i>Noticias</a>
+                        </li>
                         <li class="active">
                             <a href="<?php echo base_url(); ?>index.php/programa/listaProgramas"><i class="fa fa-fw fa-list-alt"></i>Parrilla de Programación</a>
                         </li>

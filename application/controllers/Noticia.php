@@ -7,10 +7,7 @@ class Noticia extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Noticia_model'); //carga model Unidad de Salud   
-        //$this->load->model('Especialidad_model'); //carga el model de Especialidad
-        //$this->load->model('Servicios_model'); // Carga el model de Servicios
-        //$this->load->model('AreasEspecialidad_model'); // Carga el model de Area de Especialidad
+        $this->load->model('Noticia_model'); //carga model Noticia
     }
 
     public function index() {//crear Unidad de salud
@@ -25,8 +22,8 @@ class Noticia extends CI_Controller {
         $lista = array(
             'usuarioidUsuario' => $this->session->userdata['esta_logeado']['idUsuario'],
             'TITULO' => strtoupper($this->input->post("Titulo")),
-            'DESCRIPCION' => strtoupper($this->input->post("Descripcion")),
-            'FECHA' => strtoupper($this->input->post("Fecha"))
+            'DESCRIPCION' => $this->input->post("Descripcion"),
+            'FECHA' => date("y-m-d")
         );
         //print_r($lista);
         $config['upload_path'] = './uploads';
@@ -72,8 +69,8 @@ class Noticia extends CI_Controller {
         $lista = array(
             'usuarioidUsuario' => $this->session->userdata['esta_logeado']['idUsuario'],
             'TITULO' => strtoupper($this->input->post("Titulo")),
-            'DESCRIPCION' => strtoupper($this->input->post("Descripcion")),
-            'FECHA' => strtoupper($this->input->post("Fecha")),
+            'DESCRIPCION' => $this->input->post("Descripcion"),
+            //'FECHA' => strtoupper($this->input->post("Fecha")),
         );
         echo "<script>alert('Formulario enviado con exito....!!!! ');</script>";
         $this->Noticia_model->actualizarNoticia($id, $lista);

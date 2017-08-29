@@ -17,8 +17,7 @@ $hora = array(
     'value' => set_value('Hora'),
     'type' => 'text',
     'class' => 'required form-control',
-    'style' => 'text-transform:uppercase',
-    'placeholder' => 'Ingrese la hora del programa'
+    'placeholder' => 'Hora de Inicio y Fin programa '
 );
 $dia = array(
     '0' => '---Elegir Opción---',
@@ -76,6 +75,7 @@ $dia = array(
             <label for="Nombre" class="col-lg-2 control-label">HORA:</label>
             <div class="col-lg-4">
                 <?php echo form_input($hora); ?>
+                <span>Ejemplo: 08h15-08h30</span>
             </div>
         </div>
         <div class="form-group col-lg-12">

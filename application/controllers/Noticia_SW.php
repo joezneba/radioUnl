@@ -52,18 +52,18 @@ class Noticia_SW extends REST_Controller {
         }
     }
 
-    public function dia_get($dia="")
+    public function noti_get($id="")
     {
         
-        $programas=$this->Programa_model->getDias($dia);
+        $noticia=$this->Noticia_model->getNoti($id);
 
-        if (! is_null($programas)) 
+        if (! is_null($noticia)) 
         {
-            $this->response(array("response"=>$programas),200);
+            $this->response(array("response"=>$noticia),200);
         }
         else 
         {
-            $this->response(array("Error"=>"No se encuentra programa"),404);
+            $this->response(array("Error"=>"No se encuentra noticia"),404);
         }
     }
 }

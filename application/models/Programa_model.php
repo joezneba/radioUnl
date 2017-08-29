@@ -66,7 +66,7 @@ class Programa_model extends CI_Model {
             return NULL;
         }
 
-        $query=$this->db->select("*")->from("programa")->get();
+        $query=$this->db->select(" `TITULO`, `HORA`, `DIA`")->from("programa")->order_by('HORA', 'asc')->get();
             if ($query->num_rows()>0) {
                 return $query->result_array();
             }
@@ -77,7 +77,7 @@ class Programa_model extends CI_Model {
     public function getDias($dia="")
     {
          $condition = "DIA =" . "'" . $dia . "'";
-        $query = $this->db->select('`TITULO`, `HORA`')->from('programa')->where($condition)->get();
+        $query = $this->db->select('`TITULO`, `HORA`')->from('programa')->where($condition)->order_by('HORA', 'asc')->get();
         if ($query->num_rows() > 0) {
             return $query->result();
         }

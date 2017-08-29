@@ -71,12 +71,22 @@ class Noticia_model extends CI_Model {
                 return NULL;
             }
 
-            $query=$this->db->select("`IDNOTICIA`, `TITULO`, `DESCRIPCION`, `FECHA`, `FOTO`")->from("noticia")->get();
+            $query=$this->db->select("`IDNOTICIA`, `TITULO`, `DESCRIPCION`, `FECHA`, `FOTO`")->from("noticia")->order_by('FECHA', 'desc')->get();
                 if ($query->num_rows()>0) {
                     return $query->result_array();
                 }
                 return NULL;
         }
+
+    public function getNoti($id="")
+    {
+         $condition = "IDNOTICIA =" . "'" . $id . "'";
+        $query = $this->db->select('`TITULO`, `DESCRIPCION`,,`FOTO`,`FECHA`')->from('noticia')->where($condition)->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+        return NULL;
+    }
 
     /*     * ********************************* */
 }

@@ -1,9 +1,5 @@
 <?php
-/**
- * Description of Login MODEL
- *
- * @author Kevin Atiencia
- */
+
 class Login_model extends CI_Model {
 
     function __construct() {

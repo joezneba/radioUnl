@@ -3,7 +3,7 @@
 $titulo = array(
     'name' => 'Titulo',
     'id' => 'Titulo',
-    'maxlength' => 50,
+    'maxlength' => 254,
     'value' => set_value('Titulo'),
     'type' => 'text',
     'class' => 'required form-control',

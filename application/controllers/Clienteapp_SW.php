@@ -52,23 +52,7 @@ class Clienteapp_SW extends REST_Controller {
         }
     }
 
-    /*public function find_get($id=NULL)
-    {
-        if (! $id) 
-        {
-           $this->response(NULL,400); 
-        }
-        $user_data=$this->Clienteapp_model->get($id);
-
-        if (! is_null($user_data)) 
-        {
-            $this->response(array("response"=>$user_data),200);
-        }
-        else 
-        {
-            $this->response(array("Error"=>"No se encuentra usuario"),404);
-        }
-    }*/
+    
     public function find_get($correo="")
     {
         if (! $correo )
@@ -88,7 +72,7 @@ class Clienteapp_SW extends REST_Controller {
     }
 
 
-    public function index_post()
+    /*public function index_post()
     {
         if (! $this->post("clienteapp")) 
         {
@@ -104,38 +88,45 @@ class Clienteapp_SW extends REST_Controller {
         {
             $this->response(array("error"=>"Ha ocurrido un error"),404);
         }
-    }
-    public function index_put($id)
-    {
-        if (! $this->put("book") || ! $id) 
-        {
-            $this->response(NULL,404);
-        }
-        $update= $this->books_model->update($id, $this->put("book"));
+    }*/
+    
+    public function user_get($correo="",$password="")
 
-        if (! is_null($update)) 
-        {
-            $this->response(array("response"=>"Libro actualizado"),200);    
-        }
-        else
-        {
-            $this->response(array("error"=>"Ha ocurrido un error"),404);
-        }
-    }
-    public function index_delete($id)
     {
-        if (! $id) {
-            $this->response(NULL,404);
+        if (! $correo && ! $password)
+        {
+           $this->response(NULL,400); 
         }
-        $delete= $this->books_model->delete($id);
+        $user_data=$this->Clienteapp_model->getUsuario($correo,$password);
 
-        if (! is_null($delete))
+        if (! is_null($user_data)) 
         {
-            $this->response(array("response"=>"Libro eliminado"),200);  
+            $this->response(array("response"=>$user_data),200);
         }
-        else
+        else 
         {
-            $this->response(array("error"=>"Ha ocurrido un error"),404);
+            $this->response(array("Error"=>"No se encuentra el usuario"),404);
         }
     }
+
+
+     public function validar_post() {
+        $username = $this->input->post('email');
+        $clave = $this->input->post('password');
+        $result = $this->Clienteapp_model->getCorreos();
+        $i = 0;
+        foreach ($result as $datos) {
+            if ($this->encrypt->decode($datos['CORREO']) == $username) {
+                if ($this->encrypt->decode($datos['CLAVE']) == $clave) {
+                    $datosU = $this->Clienteapp_model->getUsuario($datos['CORREO']);
+                    if ($username==$datos['CORREO']) {
+                        $this->response(array("response"=>$username),200); //datos de una sesión  
+                    } else {
+                        $this->response(array("Error"=>"No se encuentra el usuario"),404);
+                    }
+                } 
+            } 
+        }
+    }
+
 }

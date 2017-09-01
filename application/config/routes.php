@@ -64,6 +64,8 @@ $route['Programa_SW/viernes/(:num)']['get'] = "Programa_SW/find/$1";//*
 /******* Clientesapp ************/
 $route["Clienteapp_SW"]["get"]="Clienteapp_SW/index";
 $route["Clienteapp_SW/(:num)"]["get"]="Clienteapp_SW/find/$1";
+$route["Clienteapp_SW/(:any)"]["get"]="Clienteapp_SW/user/correo,clave";
 $route["Clienteapp_SW"]["post"]="Clienteapp_SW/index";
+$route["Clienteapp_SW"]["post"]="Clienteapp_SW/validar";
 $route["Clienteapp_SW/(:num)"]["put"]="Clienteapp_SW/index/$1";
 $route["Clienteapp_SW/(:num)"]["delete"]="Clienteapp_SW/index/$1";

@@ -45,7 +45,91 @@ class Clienteapp extends CI_Controller {
         		));
         }
     }
+
+    /*public function validar() {
+        $username = $this->input->post('email');
+        $clave = $this->input->post('clave');
+        $result = $this->Clienteapp_model->getCorreos();
+        $i = 0;
+        foreach ($result as $datos) {
+            if ($datos['CORREO'] == $username) {
+                if ($this->encrypt->decode($datos['CLAVE']) == $clave) {
+                    $datosU = $this->Clienteapp_model->getUsuario($datos['CORREO']);
+                    if ($username==$datos['CORREO']) {
+                        //$this->response(array("response"=>$username),200); //datos de una sesión 
+                        echo json_encode(array(
+                            'response'=>true,
+                            'message'=>'Validado'
+                        ));
+                    } else {
+                        //$this->response(array("Error"=>"No se encuentra el usuario"),404);
+                    }
+                } 
+            }else{
+                $i++;
+            }
+            if($i>0){
+                echo 'string';
+            }
+        }
+        
+    }*/
+     public function validar() {
+        $username = $this->input->post('email');
+        $clave = $this->input->post('clave');
+        $usuario=$this->Clienteapp_model->getUsuario($username);
+        if(! is_null($usuario)){
+            if ($username==$usuario['CORREO']) {
+                if ($clave==$this->encrypt->decode($usuario['CLAVE'])) {
+                    echo json_encode(array(
+                            'response'=>1,
+                            'message'=>'Validado'
+                        ));
+                }
+            }else {
+                echo json_encode(array(
+                            'response'=>NULL,
+                            'message'=>'Invalido'
+                        ));
+            }
+            
+        }else {
+            echo json_encode(array(
+                            'response'=>NULL,
+                            'message'=>'Invalido'
+                        ));     
+        }
+
+
+    }
+        
 }
 
 /* End of file Clienteapp.php */
 /* Location: ./application/controllers/Clienteapp.php */
+/*$result = $this->Clienteapp_model->getCorreos();
+        $i = 0;
+        foreach ($result as $datos) {
+            if ($datos['CORREO'] == $username) {
+                if ($this->encrypt->decode($datos['CLAVE']) == $clave) {
+                    $datosU = $this->Clienteapp_model->getUsuario($datos['CORREO']);
+                    if ($username==$datos['CORREO']) {
+                        //$this->response(array("response"=>$username),200); //datos de una sesión 
+                        echo json_encode(array(
+                            'response'=>true,
+                            'message'=>'Validado'
+                        ));
+                    } else {
+                        //$this->response(array("Error"=>"No se encuentra el usuario"),404);
+                    }
+                } 
+            }else{
+                $i++;
+            }
+            if($i>0){
+                echo 'string';
+            }
+        }
+        
+    }
+}*/

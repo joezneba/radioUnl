@@ -23,7 +23,7 @@ class Clienteapp_model extends CI_Model {
 			}
 			return NULL;
 		}
-		//SELECT `idCliente`, `NOMBRE`, `CORREO`, `CLAVE` FROM `clienteapp` WHERE `correo`='lsyCAncYLelTi2xqCFvauBR9sRuV/c6AKqNnbl1FgEW4525X97fYsRXBZLeuWyRDwSnlW9iIRe84oXtALT46Vg==' AND `clave`='o3nqMCh6mqxpXpyBQmOO4zN6qRpXrskST8gmVKeexEAxbHUzhgQaSGO/v325oMWVoYTv/QAZeMi7x4W86qFTiQ=='
+		
 		$query= $this->db->select("*")->from("clienteapp")->get();
 		if ($query->num_rows()>0) 
 		{
@@ -44,7 +44,7 @@ class Clienteapp_model extends CI_Model {
 			}
 			return NULL;
 		}
-		//SELECT `idCliente`, `NOMBRE`, `CORREO`, `CLAVE` FROM `clienteapp` WHERE `correo`='lsyCAncYLelTi2xqCFvauBR9sRuV/c6AKqNnbl1FgEW4525X97fYsRXBZLeuWyRDwSnlW9iIRe84oXtALT46Vg==' AND `clave`='o3nqMCh6mqxpXpyBQmOO4zN6qRpXrskST8gmVKeexEAxbHUzhgQaSGO/v325oMWVoYTv/QAZeMi7x4W86qFTiQ=='
+		
 		$query= $this->db->select("*")->from("clienteapp")->get();
 		if ($query->num_rows()>0) 
 		{
@@ -98,7 +98,48 @@ class Clienteapp_model extends CI_Model {
 				"CLAVE"	=> $clienteapp["CLAVE"]
 		);
 	}
-    
+
+	/*public function getUsuario($username="",$clave="") {
+	        
+	      
+	      if (! is_null($username) && ! is_null($clave))
+		{
+			$condition = "CORREO =" . "'" . $username . "' AND " . "CLAVE =" . "'" . $clave . "'";
+			$query=$this->db->select("*")->from("clienteapp")->where($condition)->get();
+			if ($query->num_rows()===1) 
+			{
+				return $query->row_array();
+			}
+			return NULL;
+		}
+	} */
+
+	public function getUsuario($username="") {
+	        
+	      
+	      if (! is_null($username))
+		{
+			$condition = "CORREO =" . "'" . $username . "'";
+			$query=$this->db->select("*")->from("clienteapp")->where($condition)->get();
+			if ($query->num_rows()===1) 
+			{
+				return $query->row_array();
+			}
+			return NULL;
+		}
+	} 
+
+	function getCorreos() {
+        $this->db->select('`IDCLIENTE`,`CORREO`,`CLAVE`');
+        $this->db->from('clienteapp');
+        $datos = $this->db->get();
+        if ($datos->num_rows() > 0) {
+            return $datos->result_array();
+        } else {
+            return NULL;
+        }
+    }
+
 }
 
 /* End of file Clienteapp_model.php */

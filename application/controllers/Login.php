@@ -30,43 +30,6 @@ class Login extends CI_Controller {
         $this->load->view('frmLogin');
     }
 
-    //valida si el correo y contraseña son correctos
-    /*public function validar() {
-        $username = $this->input->post('email');
-        $clave = $this->input->post('password');
-        $result = $this->Login_model->getCorreos();
-        $i = 0;
-        foreach ($result as $datos) {
-            if ($this->encrypt->decode($datos['CORREO']) == $username) {
-                if ($this->encrypt->decode($datos['CLAVE']) == $clave) {
-                    $datosU = $this->Login_model->getUsuario($datos['CORREO']);
-                    $captcha = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6Ld6xCMTAAAAALEb-9ChmsbZnt6BWkSlnkhKs0S7&response=' . $_POST['g-recaptcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR']), TRUE);
-                    if ($captcha['success'] == TRUE) {
-                        $session_data = array(
-                            'idUsuario' => $datosU[$i]->IDUSUARIO,
-                            'nombre' => $datosU[$i]->NOMBRE,
-                            'apellido' => $datosU[$i]->APELLIDO,
-                            'email' => $datosU[$i]->CORREO,
-                            'estado' => $datosU[$i]->ESTADO
-                        ); //datos de una sesión  
-                        $this->session->set_userdata('esta_logeado', $session_data);
-                        session_start();
-                        redirect('login/page_Admin', 'refresh');
-                    } else {
-                        redirect('login/PreguntaSeguridad/' . $datosU[$i]->IDUSUARIO, 'refresh');
-                    }
-                } else {
-                    $data = array(
-                        'message' => 'Invalido El <strong>Password</strong>');
-                    $this->index($data);
-                }
-            } else {
-                $data = array(
-                    'message' => 'Invalido El <strong>Email</strong>');
-                $this->index($data);
-            }$i++;
-        }
-    }*/
 
     public function validar() {
         $username = $this->input->post('email');

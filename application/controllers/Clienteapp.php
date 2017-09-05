@@ -82,20 +82,20 @@ class Clienteapp extends CI_Controller {
             if ($username==$usuario['CORREO']) {
                 if ($clave==$this->encrypt->decode($usuario['CLAVE'])) {
                     echo json_encode(array(
-                            'response'=>1,
+                            'var'=>1,
                             'message'=>'Validado'
                         ));
                 }
             }else {
                 echo json_encode(array(
-                            'response'=>NULL,
+                            'var'=>NULL,
                             'message'=>'Invalido'
                         ));
             }
             
         }else {
             echo json_encode(array(
-                            'response'=>NULL,
+                            'var'=>NULL,
                             'message'=>'Invalido'
                         ));     
         }

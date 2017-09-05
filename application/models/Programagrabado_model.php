@@ -67,7 +67,7 @@ class Programagrabado_model extends CI_Model {
             return NULL;
         }
 
-        $query=$this->db->select("*")->from("programagrabado")->get();
+        $query=$this->db->select("`TITULO`, `AUDIO`")->from("programagrabado")->get();
             if ($query->num_rows()>0) {
                 return $query->result_array();
             }
